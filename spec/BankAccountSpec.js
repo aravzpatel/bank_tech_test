@@ -20,12 +20,12 @@ describe("BankAccount", function(){
 
     it("should not be able to deposit negative amounts", function(){
 
-      expect( function(){account.deposit(-100)} ).toThrow(new Error("Deposit Issue: Negative amounts are not possible"))
+      expect( function(){account.deposit(-100)} ).toThrow(new Error("Input Issue: Negative amounts are not possible"))
     })
 
     it("should throw an error if a non-number is deposited", function(){
 
-      expect( function(){ account.deposit('a string')}).toThrow(new Error("Deposit Issue: Invalid input, please provide a number"))
+      expect( function(){ account.deposit('a string')}).toThrow(new Error("Input Issue: Invalid input, please provide a number"))
     })
   })
 });

@@ -34,4 +34,14 @@ describe("Withdrawing from an account", function(){
       expect(account.currentBalance(account.transactionLog)).toEqual(70);
     })
   })
+
+  describe("withdrawal edge cases", function(){
+    it("should not allow negative withdrawals", function(){
+      expect(function(){ account.withdraw(-50)}).toThrow(new Error("Input Issue: Negative amounts are not possible"));
+    })
+
+    it("should not allow strings withdrawals", function(){
+      expect(function(){ account.withdraw('a')}).toThrow(new Error("Input Issue: Invalid input, please provide a number"));
+    })
+  })
 })
