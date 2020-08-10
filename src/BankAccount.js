@@ -12,9 +12,7 @@ class BankAccount{
 
   withdraw(amount){
     this.isValidInput(amount)
-    if (amount > this.currentBalance(this.transactionLog)){
-      throw new Error("Withdrawal Issue: Cannot withdraw more than deposited")
-    }
+    this.isValidWithdrawal(amount, this.transactionLog)
 
     var outgoingWithdrawal = {type: "Withdrawal", amount: amount, date: Date.now }
     this.transactionLog.push(outgoingWithdrawal)
@@ -32,11 +30,17 @@ class BankAccount{
     return total
   }
 
-  isValidInput(input){
-    if ( input < 0) {
+  isValidInput(amount){
+    if ( amount < 0) {
       throw new Error("Input Issue: Negative amounts are not possible");
-    } else if (isNaN(input)){
+    } else if (isNaN(amount)){
       throw new Error("Input Issue: Invalid input, please provide a number");
+    }
+  }
+
+  isValidWithdrawal(withdrawalAmount, transactionLog){
+    if (withdrawalAmount > this.currentBalance(transactionLog)){
+      throw new Error("Withdrawal Issue: Cannot withdraw more than deposited")
     }
   }
 };
