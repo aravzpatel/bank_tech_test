@@ -13,6 +13,13 @@ I want to be able to create a bank account
 2. As a user
 So that I can save cash
 I want to be able to deposit £ to my account
+-> Make a deposit; adds the deposit to the transaction log
+  * checks the transactionLog includes the information
+-> Always inputs the date on which the deposit is made
+  -> Test for edge cases
+    * enter in a string  -> return an error
+    * enter in a decimal -> ok
+    * enter in a negative number -> return an error
 
 3. As a user
 So that I can access my money
