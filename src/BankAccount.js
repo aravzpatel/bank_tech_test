@@ -20,10 +20,13 @@ class BankAccount{
   }
 
   currentBalance(transactionLog){
-    var i;
-    var total = 0;
+    var i, total = 0
     for (i=0; i < transactionLog.length; i++){
-      total += transactionLog[i].amount;
+      if(transactionLog[i].type === "Withdrawal"){
+        total -= transactionLog[i].amount;  
+      } else{
+        total += transactionLog[i].amount;
+      }
     }
     return total
   }

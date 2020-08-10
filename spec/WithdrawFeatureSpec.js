@@ -20,11 +20,18 @@ describe("Withdrawing from an account", function(){
     })
 
     it("should allow a withdrawal if the running sum of the balance is greater than withdrawal amount", function(){
-      var deposit2 = { type: "Deposit", amount: 49, date: Date.now }
-      account.transactionLog.push(deposit2)
-      account.withdraw(149)
-      expect(account.transactionLog.length).toEqual(3)
-      expect(account.transactionLog[2]).toEqual({type: "Withdrawal", amount: 149, date: Date.now})
+      var deposit2 = { type: "Deposit", amount: 49, date: Date.now };
+      account.transactionLog.push(deposit2);
+      account.withdraw(149);
+
+      expect(account.transactionLog.length).toEqual(3);
+      expect(account.transactionLog[2]).toEqual({type: "Withdrawal", amount: 149, date: Date.now});
+    })
+
+    it("should interpret withdrawals as subtracting from the current balance", function(){
+      account.withdraw(30);
+
+      expect(account.currentBalance(account.transactionLog)).toEqual(70);
     })
   })
 })
