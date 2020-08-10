@@ -11,11 +11,21 @@ class BankAccount{
   };
 
   withdraw(amount){
-    if(amount>this.transactionLog[0].amount){
+    if (amount > this.currentBalance(this.transactionLog)){
       throw new Error("Withdrawal Issue: Cannot withdraw more than deposited")
     }
+
     var outgoingWithdrawal = {type: "Withdrawal", amount: amount, date: Date.now }
     this.transactionLog.push(outgoingWithdrawal)
+  }
+
+  currentBalance(transactionLog){
+    var i;
+    var total = 0;
+    for (i=0; i < transactionLog.length; i++){
+      total += transactionLog[i].amount;
+    }
+    return total
   }
 
   isValidInput(input){
