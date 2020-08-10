@@ -17,5 +17,11 @@ describe("BankAccount", function(){
 
       expect(account.transactionLog).toEqual([{type: "Deposit", amount: 100, date: Date.now}])
     })
+
+    it("should not be able to deposit negative amounts", function(){
+      
+
+      expect( function(){account.deposit(-100)} ).toThrow(new Error("Deposit Issue: Negative amounts are not possible"))
+    })
   })
 });
