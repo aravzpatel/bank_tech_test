@@ -2,11 +2,12 @@ class BankAccount{
   constructor(){
     this.transactionLog = []
   }
+  
 
   deposit(amount){
     this.isValidInput(amount)
     
-    var incomingDeposit = { type: "Deposit", amount: amount, date: Date.now };
+    var incomingDeposit = { type: "Deposit", amount: amount, date: new Date(), current_balance: this.currentBalance(this.transactionLog)+amount };
     this.transactionLog.push(incomingDeposit);
   };
 
@@ -14,7 +15,7 @@ class BankAccount{
     this.isValidInput(amount)
     this.isValidWithdrawal(amount, this.transactionLog)
 
-    var outgoingWithdrawal = {type: "Withdrawal", amount: amount, date: Date.now }
+    var outgoingWithdrawal = {type: "Withdrawal", amount: amount, date: Date.now, current_balance: this.currentBalance(this.transactionLog)-amount }
     this.transactionLog.push(outgoingWithdrawal)
   }
 

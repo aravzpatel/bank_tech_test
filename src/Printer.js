@@ -1,7 +1,12 @@
 class Printer{
+  constructor(){
+    this.job = [];
+  }
   static statement(account, callback){
-    var printjob = new Printer();
-    Formater(account, printjob);
-    callback(printjob.list)
+    var printer = new Printer();
+    
+    Formater.extract(account, printer);
+    
+    callback(printer.job)
   }
 }
