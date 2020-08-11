@@ -25,8 +25,7 @@ This project was built using a Test Driven Development Approach which was built 
 
 ##### Test coverage
 The project has 13 tests with the following code coverage:
-![Image of Code Coverage]
-(./coverage/coverage.png)
+![Image of Code Coverage](https://github.com/aravzpatel/bank_tech_test/blob/master/images/coverage.png)
 
 ###### Running Tests
 Tests can be run by executing <npm test> in your terminal (please see installation note before executing tests).
@@ -69,8 +68,7 @@ As outlined the application relies on 3 classes:
   The class were structured in this format to take heed of the Single Responsibility Principal. By limiting each class to one responsibility the model becomes more flexible as parts can be modified quickly and easily.
 
   The program has the following diagram:
-  ![domain model]
-  (./images/BankTechTest.png)
+  ![domain model](./images/BankTechTest.png)
 
   Deposit and withdrawal actions rely soley open the Bank Account class, with information being stored on the instance of the account in the <transactionLog>.
 
@@ -79,8 +77,8 @@ As outlined the application relies on 3 classes:
   The *Formater* class does this via another static method (<extract>) which extracts the relevant *transactionLog* and formats each transaction. These are used to create instances of Formater, equivalent to formatted lines, which are stored on the Printer until they are printed.
 
 ### Installing the Application
-1. git clone the directory
-2. execute <npm install> in the working directory
+1. git clone the directory to your working directory
+2. execute: *npm install* in the working directory
 
 ### Running the application
 1. Open <index.html> in a chrome browser
@@ -90,8 +88,7 @@ As outlined the application relies on 3 classes:
 5. Withdraw money from the account <account.withdraw(numerical_amount)>
 6. Print the statement using <Printer.statement(account)>
 
-![Demo]
-(./images/Demo.png)
+![Demo](./images/Demo.png)
 
 ##### Guard clauses exist to prevent the following edge cases:
 1. Withdrawals cannot exceed the current balance
