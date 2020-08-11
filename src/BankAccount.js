@@ -3,29 +3,28 @@ class BankAccount{
     this.transactionLog = []
   }
   
-
   deposit(amount){
-    this.isValidInput(amount)
+    this._isValidInput(amount)
     
     var incomingDeposit = { type: "Deposit", amount: amount, date: new Date(), 
-      current_balance: this.currentBalance(this.transactionLog)+amount 
+      current_balance: this._currentBalance(this.transactionLog)+amount 
     };
     
       this.transactionLog.push(incomingDeposit);
   }
 
   withdraw(amount){
-    this.isValidInput(amount)
-    this.isValidWithdrawal(amount, this.transactionLog)
+    this._isValidInput(amount)
+    this._isValidWithdrawal(amount, this.transactionLog)
 
     var outgoingWithdrawal = {type: "Withdrawal", amount: amount, date: new Date(),
-      current_balance: this.currentBalance(this.transactionLog)-amount 
+      current_balance: this._currentBalance(this.transactionLog)-amount 
     };
 
     this.transactionLog.push(outgoingWithdrawal)
   }
 
-  currentBalance(transactionLog){
+  _currentBalance(transactionLog){
     var i, total = 0
     for (i=0; i < transactionLog.length; i++){
       if(transactionLog[i].type === "Withdrawal"){
@@ -37,7 +36,7 @@ class BankAccount{
     return total
   }
 
-  isValidInput(amount){
+  _isValidInput(amount){
     if ( amount < 0) {
       throw new Error("Input Issue: Negative amounts are not possible");
     } else if (isNaN(amount)){
@@ -45,8 +44,8 @@ class BankAccount{
     }
   }
 
-  isValidWithdrawal(withdrawalAmount, transactionLog){
-    if (withdrawalAmount > this.currentBalance(transactionLog)){
+  _isValidWithdrawal(withdrawalAmount, transactionLog){
+    if (withdrawalAmount > this._currentBalance(transactionLog)){
       throw new Error("Withdrawal Issue: Cannot withdraw more than deposited")
     }
   }

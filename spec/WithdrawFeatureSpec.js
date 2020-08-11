@@ -31,7 +31,7 @@ describe("Withdrawing from an account", function(){
     it("should interpret withdrawals as subtracting from the current balance", function(){
       account.withdraw(30);
 
-      expect(account.currentBalance(account.transactionLog)).toEqual(70);
+      expect(account._currentBalance(account.transactionLog)).toEqual(70);
     })
   })
 
