@@ -18,7 +18,9 @@ class Formater{
         withdrawal = element.amount
       }
       var isodate = element.date.toISOString().split("T")[0];
-      callback.job.push(new Formater( isodate, deposit.toFixed(2), withdrawal.toFixed(2), element.current_balance.toFixed(2) ))
+      callback.job.push(new Formater( isodate, deposit.toFixed(2), 
+        withdrawal.toFixed(2), element.current_balance.toFixed(2))  
+      )
     })
   }
 }

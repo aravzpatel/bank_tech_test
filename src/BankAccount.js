@@ -7,15 +7,21 @@ class BankAccount{
   deposit(amount){
     this.isValidInput(amount)
     
-    var incomingDeposit = { type: "Deposit", amount: amount, date: new Date(), current_balance: this.currentBalance(this.transactionLog)+amount };
-    this.transactionLog.push(incomingDeposit);
+    var incomingDeposit = { type: "Deposit", amount: amount, date: new Date(), 
+      current_balance: this.currentBalance(this.transactionLog)+amount 
+    };
+    
+      this.transactionLog.push(incomingDeposit);
   };
 
   withdraw(amount){
     this.isValidInput(amount)
     this.isValidWithdrawal(amount, this.transactionLog)
 
-    var outgoingWithdrawal = {type: "Withdrawal", amount: amount, date: Date.now, current_balance: this.currentBalance(this.transactionLog)-amount }
+    var outgoingWithdrawal = {type: "Withdrawal", amount: amount, date: new Date(),
+      current_balance: this.currentBalance(this.transactionLog)-amount 
+    };
+    
     this.transactionLog.push(outgoingWithdrawal)
   }
 

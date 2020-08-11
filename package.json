@@ -1,0 +1,35 @@
+{
+  "name": "bank_tech_test",
+  "version": "1.0.0",
+  "description": "Arav Patel Maker's Bank Tech Test",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "dateformat": "^3.0.3",
+    "nyc": "^15.1.0",
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  },
+  "devDependencies": {
+    "jasmine-core": "^3.6.0",
+    "karma": "^5.1.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-coverage": "^2.0.3",
+    "karma-coverage-istanbul-reporter": "^3.0.3",
+    "karma-jasmine": "^3.3.1"
+  },
+  "scripts": {
+    "test": "karma start my.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aravzpatel/bank_tech_test.git"
+  },
+  "author": "Arav Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aravzpatel/bank_tech_test/issues"
+  },
+  "homepage": "https://github.com/aravzpatel/bank_tech_test#readme"
+}
