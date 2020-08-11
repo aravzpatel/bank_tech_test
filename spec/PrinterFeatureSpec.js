@@ -15,7 +15,11 @@ describe("Printing a bank account", function(){
       date = new Date();
       isodate = date.toISOString().split("T")[0];
 
-      var log1 = new Formater(isodate, 40, 0, 40)
+      deposit = 40
+      withdrawal = 0
+      currentBalance = 40
+      
+      var log1 = new Formater(isodate, deposit.toFixed(2), withdrawal.toFixed(2), currentBalance.toFixed(2))
       expect(consoleTable).toHaveBeenCalledWith([log1])
     })
   })
