@@ -14,8 +14,9 @@ describe("BankAccount", function(){
   describe("when making a depost", function(){
     it("should record a deposit of 100 in the transaction log", function(){
       account.deposit(100)
+      
 
-      expect(account.transactionLog).toEqual([{type: "Deposit", amount: 100, date: Date.now}])
+      expect(account.transactionLog).toEqual([{type: "Deposit", amount: 100, date: new Date(), current_balance: 100}])
     })
 
     it("should not be able to deposit negative amounts", function(){

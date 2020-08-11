@@ -7,7 +7,9 @@ class Formater{
   }
   
   static extract(account, callback){
-    account.transactionLog.forEach(function(element){
+    var sortedtransactionLog = account.transactionLog.sort((a,b) => b.date - a.date)
+    
+    sortedtransactionLog.forEach(function(element){
       var deposit = 0;
       var withdrawal = 0;
       if (element.type === "Deposit"){
@@ -15,8 +17,8 @@ class Formater{
       }else{
         withdrawal = element.amount
       }
-
-      callback.job.push(new Formater( element.date, deposit, withdrawal, deposit ))
+      var isodate = element.date.toISOString().split("T")[0];
+      callback.job.push(new Formater( isodate, deposit, withdrawal, element.current_balance ))
     })
   }
 }

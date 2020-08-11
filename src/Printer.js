@@ -1,7 +1,12 @@
 class Printer{
-  static statement(account, callback){
-    var printjob = new Printer();
-    Formater(account, printjob);
-    callback(printjob.list)
+  constructor(){
+    this.job = [];
+  }
+  static statement(account, callback = console.table){
+    let printer = new Printer();
+    
+    Formater.extract(account, printer);
+    
+    callback(printer.job)
   }
 }
