@@ -12,7 +12,7 @@ class BankAccount{
     };
     
       this.transactionLog.push(incomingDeposit);
-  };
+  }
 
   withdraw(amount){
     this.isValidInput(amount)
@@ -21,7 +21,7 @@ class BankAccount{
     var outgoingWithdrawal = {type: "Withdrawal", amount: amount, date: new Date(),
       current_balance: this.currentBalance(this.transactionLog)-amount 
     };
-    
+
     this.transactionLog.push(outgoingWithdrawal)
   }
 
@@ -50,4 +50,4 @@ class BankAccount{
       throw new Error("Withdrawal Issue: Cannot withdraw more than deposited")
     }
   }
-};
+}
