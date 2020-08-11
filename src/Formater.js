@@ -7,7 +7,7 @@ class Formater{
   }
   
   static extract(account, callback){
-    var sortedtransactionLog = account.transactionLog.sort((a,b) => b.date - a.date)
+    var sortedtransactionLog = this.sortTransactionLog(account.transactionLog)
     
     sortedtransactionLog.forEach(function(element){
       var deposit = 0;
@@ -22,5 +22,9 @@ class Formater{
         withdrawal.toFixed(2), element.current_balance.toFixed(2))  
       )
     })
+  }
+
+  static sortTransactionLog(log){
+    return log.sort((a,b) => b.date - a.date)
   }
 }
